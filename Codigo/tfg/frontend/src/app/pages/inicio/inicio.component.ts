@@ -11,20 +11,36 @@ import { EnvioService } from 'src/app/services/envio.service';
 
 export class InicioComponent implements OnInit {
   public datosP = this.f.group({
-    texto: ['']
+    texto: [''],
+    edad: [''], 
+    objetivo:['']
   });
+
+  public listaLugares:any = []
+
   constructor( private f: FormBuilder, private envio: EnvioService) { }
 
   ngOnInit(): void {
   }
 
   enviar(){
-    console.log(this.datosP.value);
     this.envio.sendData(this.datosP.value)
     .subscribe((res:any) =>{
-      console.log(res);
+
+      const resultado = res['choices']['0']['message']['content']
+      const splitted = resultado.split('\n\n', 5);
+      const separacion=[];
+
+      for(let i = 0 ; i<5 ; i++){
+        separacion[i] = splitted[i].split(':', 1);
+      }
+      for(let i = 0 ; i<5 ; i++){
+        this.listaLugares[i] = separacion[i]['0'].split('.', 2)[1];
+      }
+      
+      for(let i = 0; i<5; i++){
+        console.log(this.listaLugares[i]);
+      }
     })
-
   }
-
 }

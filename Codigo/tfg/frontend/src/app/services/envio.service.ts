@@ -11,6 +11,7 @@ export class EnvioService {
   constructor(private http: HttpClient) { }
 
   sendData(data: any) {
+    console.log(data)
     return this.http.post(this.apiUrl, data);
   }
 }

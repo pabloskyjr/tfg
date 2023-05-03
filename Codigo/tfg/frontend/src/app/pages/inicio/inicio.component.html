@@ -1,4 +1,11 @@
 <form action="texto"  [formGroup]="datosP" (submit)="enviar()">
-    <input type="text" formControlName="texto">
+    <input type="text" formControlName="texto"><br>
+    <select name="objetivo" id="objetivo" formControlName="objetivo"><
+        <option value="ocio">Ocio</option>
+        <option value="deporte">Deporte</option>
+        <option value="comida">Comida</option>
+        <option value="fiesta">Fiesta</option>
+    </select><br>
+    <input type="number" formControlName="edad">
     <button>Enviar</button>
 </form>

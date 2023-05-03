@@ -10,12 +10,14 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { InicioComponent } from './pages/inicio/inicio.component';
+import { ResultadoComponent } from './pages/resultado/resultado.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    InicioComponent
+    InicioComponent,
+    ResultadoComponent
   ],
   imports: [
     BrowserModule,

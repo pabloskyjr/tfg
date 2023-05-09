@@ -1,6 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { Component, OnInit  } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
 import { EnvioService } from 'src/app/services/envio.service';
+import {Router} from '@angular/router';
+import Swal from 'sweetalert2';
+
 
 
 @Component({
@@ -11,41 +14,48 @@ import { EnvioService } from 'src/app/services/envio.service';
 
 export class InicioComponent implements OnInit {
   public datosP = this.f.group({
-    texto: [''],
-    edad: [''], 
-    objetivo:['']
+    texto: ['', Validators.required],
+    edad: ['',  Validators.required], 
+    objetivo:['',  Validators.required]
   });
 
-  public listaLugares:any = []
+  public listaLugares:any = [];  
+  public mensaje = '<h3>Rellena toda la información</h3>';
 
-  constructor( private f: FormBuilder, private envio: EnvioService) { }
+
+  constructor( private f: FormBuilder, private envio: EnvioService, private router: Router) { }
 
   ngOnInit(): void {
+    localStorage.setItem('listaLugares', ' ')
   }
 
   enviar(){
-    this.envio.sendData(this.datosP.value)
-    .subscribe((res:any) =>{
-
-      const resultado = res['choices']['0']['message']['content']
-      const splitted = resultado.split('\n\n', 5);
-      const separacion=[];
-
-      for(let i = 0 ; i<5 ; i++){
-        separacion[i] = splitted[i].split(':', 1);
-      }
-      for(let i = 0 ; i<5 ; i++){
-        this.listaLugares[i] = separacion[i]['0'].split('.', 2)[1];
-      }
-      
-      for(let i = 0; i<5; i++){
-        console.log(this.listaLugares[i]);
-      }
-    })
+    if(this.datosP.valid ){
+      this.envio.sendData(this.datosP.value)
+      .subscribe((res:any) =>{
+  
+        const resultado = res['choices']['0']['message']['content']
+        console.log(resultado);
+        const splitted = resultado.split(/\n+/, 8);
+        console.log(splitted)
+  
+        for(let i = 0 ; i<8 ; i++){
+          this.listaLugares[i] = splitted[i].split(/[.:]/)[1];
+        }
+        
+        console.log(this.listaLugares)
+        localStorage.setItem('listaLugares', JSON.stringify( this.listaLugares ));
+        this.router.navigate(['resultado']);
+      })
+    }else{
+         Swal.fire(
+          {icon: 'error', 
+          title: 'Algo fue mal', 
+          text: 'Rellena toda la información'
+        });
+    }
   }
-
   getLugares(){
     return this.listaLugares;
   }
-
 }

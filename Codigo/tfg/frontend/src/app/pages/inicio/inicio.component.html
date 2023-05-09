@@ -1,4 +1,4 @@
-<form action="texto"  [formGroup]="datosP" (submit)="enviar()">
+<form #miFormulario="ngForm" action="texto"  [formGroup]="datosP" (submit)="enviar()">
     <input type="text" formControlName="texto" required><br>
     <select name="objetivo" id="objetivo" formControlName="objetivo" required>
         <option value="ocio">Ocio</option>

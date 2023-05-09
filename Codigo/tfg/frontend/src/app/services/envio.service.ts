@@ -8,6 +8,8 @@ export class EnvioService {
 
   private apiUrl = 'http://localhost:5000/api/envio';
 
+  public listaLugares: any = []
+
   constructor(private http: HttpClient) { }
 
   sendData(data: any) {

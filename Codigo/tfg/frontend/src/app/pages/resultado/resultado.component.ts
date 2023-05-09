@@ -8,11 +8,11 @@ import { EnvioService } from '../../services/envio.service';
 })
 export class ResultadoComponent implements OnInit {
 
+  public listaLugares: any = [];
 
-  constructor() { }
+  constructor(private envio: EnvioService) { }
 
   ngOnInit(): void {
+    this.listaLugares = JSON.parse(localStorage.getItem('listaLugares') || '{}');
   }
-
-
 }

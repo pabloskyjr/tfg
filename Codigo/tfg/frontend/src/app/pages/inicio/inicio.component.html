@@ -1,11 +1,12 @@
 <form action="texto"  [formGroup]="datosP" (submit)="enviar()">
-    <input type="text" formControlName="texto"><br>
-    <select name="objetivo" id="objetivo" formControlName="objetivo"><
+    <input type="text" formControlName="texto" required><br>
+    <select name="objetivo" id="objetivo" formControlName="objetivo" required>
         <option value="ocio">Ocio</option>
         <option value="deporte">Deporte</option>
         <option value="comida">Comida</option>
-        <option value="fiesta">Fiesta</option>
+        <option value="cultura">Cultura</option>
+        <option value="familia">En familia</option>
     </select><br>
-    <input type="number" formControlName="edad">
+    <input type="number" formControlName="edad" required>
     <button>Enviar</button>
 </form>

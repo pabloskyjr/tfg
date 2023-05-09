@@ -43,4 +43,9 @@ export class InicioComponent implements OnInit {
       }
     })
   }
+
+  getLugares(){
+    return this.listaLugares;
+  }
+
 }

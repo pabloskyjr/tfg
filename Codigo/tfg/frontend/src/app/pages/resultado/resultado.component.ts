@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { EnvioService } from '../../services/envio.service';
 
 @Component({
   selector: 'app-resultado',
@@ -7,9 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ResultadoComponent implements OnInit {
 
+
   constructor() { }
 
   ngOnInit(): void {
   }
+
 
 }

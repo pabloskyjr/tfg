@@ -34,7 +34,7 @@ def create_resource():
             "messages": [
                 {
                     "role": "user",
-                    "content": "Lugares de interés de" + str(lista[0]) +" para un chico de "+ str(data['edad']) +"con objetivo de"+ str(data['objetivo'])
+                    "content": "Lugares de interés de" + str(lista[0]) +" para personas de "+ str(data['edad']) +"con objetivo de"+ str(data['objetivo'])
                 }
             ] 
         }

@@ -1,12 +1,24 @@
+<h1>TouristApp</h1>
+<h3>Dónde quieres ir para saber qué tienes que ver</h3>
+
 <form #miFormulario="ngForm" action="texto"  [formGroup]="datosP" (submit)="enviar()">
-    <input type="text" formControlName="texto" required><br>
-    <select name="objetivo" id="objetivo" formControlName="objetivo" required>
-        <option value="ocio">Ocio</option>
-        <option value="deporte">Deporte</option>
-        <option value="comida">Comida</option>
-        <option value="cultura">Cultura</option>
-        <option value="familia">En familia</option>
-    </select><br>
-    <input type="number" formControlName="edad" required>
-    <button>Enviar</button>
+    <input class="texto" type="text" formControlName="texto" required placeholder="Que ciudad vas a visitar"><br>
+    <div class="grupoBotones">
+        <input [ngClass]="{'cat2' : pintarCat == 0, 'cat' : pintarCat != 0}" type="button" value="Comida" (click)="seleccionarBoton(0)" >
+        <input [ngClass]="{'cat2' : pintarCat == 1, 'cat' : pintarCat != 1}" type="button" value="Cultura" (click)="seleccionarBoton(1)">
+        <input [ngClass]="{'cat2' : pintarCat == 2, 'cat' : pintarCat != 2}" type="button" value="En familia" (click)="seleccionarBoton(2)">
+        <input [ngClass]="{'cat2' : pintarCat == 3, 'cat' : pintarCat != 3}" type="button" value="Deporte" (click)="seleccionarBoton(3)">
+    </div>
+    <br>
+    
+
+    <div class="grupoBotones">
+        <input [ngClass]="{'cat2': pintarEdad == 0, 'cat': pintarEdad != 0}" type="button" value="18-25" (click)="seleccionarEdad(0)">
+        <input [ngClass]="{'cat2': pintarEdad == 1, 'cat': pintarEdad != 1}" type="button" value="26-35" (click)="seleccionarEdad(1)">
+        <input [ngClass]="{'cat2': pintarEdad == 2, 'cat': pintarEdad != 2}" type="button" value="36-50" (click)="seleccionarEdad(2)">
+        <input [ngClass]="{'cat2': pintarEdad == 3, 'cat': pintarEdad != 3}" type="button" value="50-65" (click)="seleccionarEdad(3)">
+        <input [ngClass]="{'cat2': pintarEdad == 4, 'cat': pintarEdad != 4}" type="button" value="65+" (click)="seleccionarEdad(4)">
+    </div>
+    <br>
+    <button class="boton">Confirmar</button>
 </form>

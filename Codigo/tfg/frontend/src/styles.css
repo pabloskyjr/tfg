@@ -1,1 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
+
+body{
+    background-image: url('assets/imagen3.jpeg');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position-y: 20%;
+
+    font-family: 'fuente';
+    
+}
+
+@font-face {
+    font-family: 'fuente';
+    src: url('assets/tipografia.otf');
+  }

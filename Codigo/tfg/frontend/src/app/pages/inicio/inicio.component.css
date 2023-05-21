@@ -1,5 +1,3 @@
-
-
 form{
     border: 1px solid black;
     text-align: center;
@@ -30,8 +28,9 @@ form{
 
 .texto{
     margin: 2em;
-    width: 20%;
+    width: 30%;
     border-radius: 5px;
+    font-size: 18px;
 }
 
 .cat:hover{

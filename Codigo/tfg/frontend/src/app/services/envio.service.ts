@@ -14,6 +14,11 @@ export class EnvioService {
 
   sendData(data: any) {
     console.log(data)
-    return this.http.post(this.apiUrl, data);
+    return this.http.post('http://localhost:5000/api/envio', data);
+  }
+
+  sendSummary(data: any) {
+    console.log(data)
+    return this.http.post('http://localhost:5000/api/resumen', data);
   }
 }

@@ -33,14 +33,14 @@ export class InicioComponent implements OnInit {
     if(this.datosP.valid ){
       this.envio.sendData(this.datosP.value)
       .subscribe((res:any) =>{
-  
         const resultado = res['choices']['0']['message']['content']
         console.log(resultado);
-        const splitted = resultado.split(/\n+/, 8);
+        const splitted = resultado.split(/\n+/, 5);
         console.log(splitted)
   
-        for(let i = 0 ; i<8 ; i++){
-          this.listaLugares[i] = splitted[i].split(/[.:]/)[1];
+        for(let i = 0 ; i<5 ; i++){
+          let aux = splitted[i].split(/[.:]/)[1];
+          this.listaLugares[i] = aux.replace(" ", "");
         }
         
         console.log(this.listaLugares)
@@ -52,7 +52,7 @@ export class InicioComponent implements OnInit {
           {icon: 'error', 
           title: 'Algo fue mal', 
           text: 'Rellena toda la información'
-        });
+          });
     }
   }
 

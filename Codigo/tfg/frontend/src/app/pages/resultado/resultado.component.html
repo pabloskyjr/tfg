@@ -1,5 +1,8 @@
-<ul>
-    <li *ngFor="let i of [0, 1, 2, 3, 4]">
-        {{listaLugares[i]}}
-    </li>
-</ul>
+<h1>TouristApp</h1>
+<h3>Dónde quieres ir para saber qué tienes que ver</h3>
+
+<div *ngFor="let i of [0, 1, 2, 3, 4]">
+    <div class="division">    
+        <article>{{listaLugares[i]}}: {{resumenes[i]}}</article>
+    </div>
+</div>

@@ -4,7 +4,8 @@ body{
     background-image: url('assets/imagen3.jpeg');
     background-repeat: no-repeat;
     background-size: 100%;
-    background-position-y: 20%;
+    background-attachment: fixed;
+    background-position-y: 40%;
     font-family: 'fuente';
     
 }

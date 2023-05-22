@@ -1,8 +1,12 @@
 <h1>TouristApp</h1>
 <h3>Dónde quieres ir para saber qué tienes que ver</h3>
-
-<div *ngFor="let i of [0, 1, 2, 3, 4]">
+<div *ngFor="let i of [0, 1, 2, 3]">
     <div class="division">    
-        <article>{{listaLugares[i]}}: {{resumenes[i]}}</article>
+        <div class="izquierda"><img width="80%" src="../../../assets/imagen3.jpeg" alt="Pixabay Image"></div>
+        <article class="derecha">
+            <p>{{listaLugares[i]}}</p>
+            <p>{{resumenes[i]}}</p>
+            <button (click)="cambiarLugar(i)">CAMBIO</button>
+        </article>
     </div>
 </div>

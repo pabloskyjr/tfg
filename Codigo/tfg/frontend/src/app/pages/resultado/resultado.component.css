@@ -1,14 +1,33 @@
 article{
     width: 50%;
-    margin: auto;
+    margin: 3em;
     background-color: hsl(220, 10%, 90%, 50%);
     padding: 1em;
     border-radius: 8px;
-
 }
 
 .division{
     margin-top: 3em;
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+}
+
+.derecha{
+    display: flex;
+    flex-flow: column;
+}
+
+.izquierda{
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    width: 20%;
+    margin-left: 10em;
+}
+
+img{
+    border-radius: 8px;
 }
 
 h1{
@@ -22,3 +41,23 @@ h3{
     text-align: center;
     font-size: 25px;
 }
+
+h4{
+    text-align: center;
+}
+
+button{
+    margin: auto;
+    border-radius: 8px;
+    background-color:hsl(220, 100%, 10%);
+    padding: 0.7em;
+    cursor: pointer;
+    color: white;
+    width: 10%;
+}
+
+button:hover{
+    background-color: hsl(220, 10%, 20%);
+}
+
+

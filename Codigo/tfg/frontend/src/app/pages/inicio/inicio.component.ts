@@ -27,6 +27,7 @@ export class InicioComponent implements OnInit {
 
   ngOnInit(): void {
     localStorage.setItem('listaLugares', ' ')
+    localStorage.setItem('ciudad', ' ')
   }
 
   enviar(){
@@ -35,23 +36,26 @@ export class InicioComponent implements OnInit {
       .subscribe((res:any) =>{
         const resultado = res['choices']['0']['message']['content']
         console.log(resultado);
-        const splitted = resultado.split(/\n+/, 5);
+        const splitted = resultado.split(/\n+/, 8);
         console.log(splitted)
   
-        for(let i = 0 ; i<5 ; i++){
-          let aux = splitted[i].split(/[.:]/)[1];
+        for(let i = 0 ; i<8 ; i++){
+          let aux = splitted[i].split(/[.:-]/)[1];
           this.listaLugares[i] = aux.replace(" ", "");
         }
         
         console.log(this.listaLugares)
+        console.log(res['ciudad'])
         localStorage.setItem('listaLugares', JSON.stringify( this.listaLugares ));
+        localStorage.setItem('ciudad', res['ciudad']);
         this.router.navigate(['resultado']);
       })
     }else{
          Swal.fire(
-          {icon: 'error', 
-          title: 'Algo fue mal', 
-          text: 'Rellena toda la información'
+          {
+            icon: 'error', 
+            title: 'Algo fue mal', 
+            text: 'Rellena toda la información'
           });
     }
   }
